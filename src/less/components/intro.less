@@ -1,0 +1,110 @@
+
+section.intro-page-banner {
+  height: 286px;
+  background: url('../img/intro_page_banner^$IMAGE_VERSION$.jpg') center center;
+}
+
+section.intro-nav {
+  li {
+    text-align: center;
+    & > a {
+      padding: 10px;
+      display: inline-block;
+      width: 100px;
+      text-decoration: none;
+      color: #000;
+    }
+    &.active > a,
+    &:hover > a {
+      background-color: #ea5412;
+      color: #fff;
+    }
+  }
+  //margin-bottom: 70px;
+}
+
+section.intro-content {
+  .intro-content-main {
+    background: #f9f9f9;
+    color: #505050;
+    padding: 50px 100px;
+
+    .intro-row {
+      margin-bottom: 20px;
+      h2 {
+        margin-top: 0;
+        font-size: 25px;
+        line-height: 36px;
+        & .subtitle {
+          font-size: 18px;
+          font-weight: 200;
+        }
+      }
+      p {
+        font-size: 16px;
+      }
+
+      &:extend(.clearfix all);
+    }
+    .intro-bar {
+      background: #ffffff;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      padding: 20px;
+
+      h2 {
+        line-height: 36px;
+        font-size: 20px;
+        margin: 0;
+      }
+      p {
+        line-height: 36px;
+        font-size: 20px;
+        margin: 0;
+        font-style: italic;
+      }
+      .border-left {
+        border-left: 1px solid #f0f0f0;
+      }
+      .border-right {
+        border-right: 1px solid #f0f0f0;
+      }
+
+      &:extend(.clearfix all);
+    }
+
+    .intro-section {
+      display: block;
+      padding-top: 25px;
+      padding-bottom: 25px;
+      .section-header {
+        font-size: 25px;
+        color: #e95412;
+        display: block;
+        border-left: 6px solid #e95412;
+        padding-left: 15px;
+        /* margin-bottom: 20px; */
+      }
+      .section-content {
+        .friend-bar {
+          padding: 20px 0;
+          font-size: 18px;
+          text-align: center;
+          border: 1px solid #dedede;
+          color: #505050;
+          background-color: #fff;
+          margin: 20px 35px;
+
+          a {
+            text-decoration: none;
+            color: #505050;
+          }
+          a:hover {
+            color: lighten(#e95412, 15%);
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}

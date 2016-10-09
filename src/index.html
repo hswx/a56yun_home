@@ -1,0 +1,223 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+
+<head>
+
+    <!-- build:headerMetas -->
+    <!-- endbuild -->
+
+    <meta name="description"
+          content="&quot;爱我乐运&quot;集装箱信息平台旨在通过对互联网技术的运用，以及对船运公司，国际货代,集装箱运输车队等各相关方资源的整合，塑造一个全新的集装箱物流运营模式。">
+    <meta name="keywords" content="爱我乐运,集装箱物流,国际货代,集卡车队">
+    <meta name="author" content="上海物联实业有限公司">
+    <title>爱我乐运</title>
+    <!-- build:css -->
+    <!-- endbuild -->
+
+</head>
+
+<body>
+<style>
+    .navbar-main ul.navbar-right li:nth-of-type(1) a{
+        color: #fb8557;
+    }
+    .navbar-main ul.navbar-right li:nth-of-type(1) a:hover{
+        color:#FB9555;
+    }
+</style>
+<!-- build:browserCheckBegin -->
+<!-- endbuild -->
+
+<!-- build:header -->
+<!-- endbuild -->
+
+<section>
+    <div id="carousel" class="carousel slide" data-ride="carousel">
+        <div class="price-search" id="search_box">
+            <form class="form-inline"  id="searchForm" action="/priceSheets" method="get" target="_blank">
+                <input type="hidden" name="page" id="pageId"/>
+                <input type="hidden" name="size" id="pageSizeId" value="10"/>
+                <div class="form-group input-area">
+                    <label><img src="./img/运价查询/地区图标^$IMAGE_VERSION$.png" >做箱区域：</label>
+                    <input type="text" class="form-control  input-sm "  id="citySelect" autocomplete="off" placeholder="汉字 / 拼音 / 简拼"  >
+                    <input type="hidden" id="province" name="province">
+                    <input type="hidden" id="city" name="city">
+                    <input type="hidden" id="zone" name="zone">
+                </div>
+                <div class="form-group input-box">
+                    <label><img src="./img/运价查询/箱型^$IMAGE_VERSION$.png" >箱型：</label>
+                    <select class="form-control  input-sm "  id="sel_csize"  >
+                        <option id="csize_id_1" value="Forty">40GP</option>
+                        <option id="csize_id_2" value="FortyFive">45GP</option>
+                        <option id="csize_id_3" value="Twenty">20GP</option>
+                        <option id="csize_id_4" value="Forty">40HC</option>
+                        <option id="csize_id_5" value="FortyFive">45HC</option>
+                        <option id="csize_id_6" value="Twenty">20HC</option>
+                    </select>
+                    <input type="hidden" id="containerSizeEnum" name="containerSizeEnum" value="Forty">
+                    <input type="hidden" id="containerTypeEnum" name="containerTypeEnum" value="0">
+                </div>
+                <div class="form-group input-weight"name="containerTypeEnum">
+                    <label>重量：</label>
+                    <select class="form-control input-sm " id="cweight" name="grossWeightEnum" >
+                        <option id="cweight_id_1" value="FifteenTon" style="display: none">15吨以下</option>
+                        <option id="cweight_id_2" value="FifteenTwentyTon" style="display: none">15~20吨</option>
+                        <option id="cweight_id_3" value="TwentyTon" style="display: none">20吨以上</option>
+                        <option id="cweight_id_4" value="EighteenTon" selected>18吨以下</option>
+                        <option id="cweight_id_5" value="EighteenTwentyTwoTon">18~22吨</option>
+                        <option id="cweight_id_6" value="TwentyTwoTon">22吨以上</option>
+                    </select>
+                </div>
+                <hr>
+                <div class="form-group input-btn">
+                    <button type="submit" class="btn" name="search">运价查询</button>
+                </div>
+
+            </form>
+        </div>
+
+        <!-- Menu -->
+        <ol class="carousel-indicators">
+            <li data-target="#carousel" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel" data-slide-to="1"></li>
+            <li data-target="#carousel" data-slide-to="2"></li>
+            <li data-target="#carousel" data-slide-to="3"></li>
+            <li data-target="#carousel" data-slide-to="4"></li>
+        </ol>
+
+        <!-- Items -->
+        <div class="carousel-inner">
+
+            <div class="item active">
+                <img src="img/轮播/a56^$IMAGE_VERSION$.png" alt="Slide 1"/>
+            </div>
+            <div class="item">
+                <img src="img/轮播/合作^$IMAGE_VERSION$.png" alt="Slide 2"/>
+            </div>
+            <div class="item">
+                <img src="img/轮播/期待banner^$IMAGE_VERSION$.png" alt="Slide 3"/>
+            </div>
+            <div class="item">
+                <a href="^$REGULAR_URL$"><img src="img/轮播/20美金banner^$IMAGE_VERSION$.png" alt="Slide 4"/></a>
+            </div>
+            <div class="item">
+                <a href="^$REGULAR_URL$"><img src="img/轮播/80美金banner^$IMAGE_VERSION$.png" alt="Slide 5"/></a>
+            </div>
+        </div>
+        <a href="#carousel" class="left carousel-control" data-slide="prev">
+            <span class="icon-prev"></span>
+        </a>
+        <a href="#carousel" class="right carousel-control" data-slide="next">
+            <span class="icon-next"></span>
+        </a>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="row info-button-group">
+            <a class="col-lg-6 info-button" href="^$GUIDE_URL$">
+
+                <img class="info-button-icon" src="img/四个模块/新手上路^$IMAGE_VERSION$.png">
+
+                <p class="info-button-heading">新手上路</p>
+
+                <p class="info-button-description">一分钟了解我们</p>
+            </a>
+            <a class="col-lg-6 info-button" href="^$QA_URL$">
+                <img class="info-button-icon" src="img/四个模块/常见问题^$IMAGE_VERSION$.png">
+
+                <p class="info-button-heading">常见问题</p>
+
+                <p class="info-button-description">乐运能帮我做什么</p>
+            </a>
+            <a class="col-lg-6 info-button" href="^$AGENCIES_URL$">
+                <img class="info-button-icon" src="img/四个模块/业务合作^$IMAGE_VERSION$.png">
+
+                <p class="info-button-heading">订舱管理</p>
+
+                <p class="info-button-description">海运抵用券使用规则</p>
+            </a>
+            <a class="col-lg-6 info-button" href="^$ACTIVITY_URL$">
+                <img class="info-button-icon" src="img/四个模块/优惠信息^$IMAGE_VERSION$.png">
+
+                <p class="info-button-heading">优惠信息<img src="img/四个模块/hot^$IMAGE_VERSION$.png"></p>
+
+                <p class="info-button-description">现金奖励<br>详情请咨询客服</p>
+            </a>
+        </div>
+    </div>
+</section>
+
+
+<!-- build:footer -->
+<!-- endbuild -->
+
+<!-- build:browserCheckEnd -->
+<!-- endbuild -->
+
+<!-- build:js -->
+<!-- endbuild -->
+<input type="text"   id="citySelect1" autocomplete="off" placeholder="汉字 / 拼音 / 简拼"  >
+<script type="text/javascript">
+    new Vcity.CitySelector({input:'citySelect1'});
+</script>
+<script type="text/javascript">
+    new Vcity.CitySelector({input:'citySelect',province:'province',city:'city',area:'zone'});
+</script>
+<script language="javascript">
+
+    if(location.host==='tx.a56yun.com'){
+        setCheduiFlag();
+    }
+
+    if(!isChedui()){
+        $("#search_box").show();
+        $("#slide_img1").attr('src','http://static.a56yun.com/img/carousel/activity.png');
+    }else{
+        $("#search_box").hide();
+        $("#slide_img1").attr('src','http://static.a56yun.com/img/carousel/aboutme.png');
+    }
+
+    if (!isLogged()) {
+        $("#unLoggedBanner").show();
+        $("#loggedBanner").hide();
+
+    } else {
+        $("#myNameHref").text(getUsernameFromCookie());
+        $("#loggedBanner").show();
+        if(getRolenameFromCookie()==='SUPPORTER'||getRolenameFromCookie()==='ADMINISTRATOR'){
+            $("#loggedBanner>li:eq(1)").hide();
+        }else{
+            $("#loggedBanner>li:eq(1)").show();
+        }
+        $("#unLoggedBanner").hide();
+    }
+
+    $("#sel_csize").bind('change', function () {
+        $("#containerSizeEnum").val($(this).val());
+        if($(this).id =='cweight_id_1'||$(this).id =='cweight_id_2'||$(this).id =='cweight_id_3'){
+            $("#containerTypeEnum").val(0);
+        }
+        if($(this).id =='cweight_id_4'||$(this).id =='cweight_id_5'||$(this).id =='cweight_id_6'){
+            $("#containerTypeEnum").val(1);
+        }
+
+        if ($(this).val() == 'Twenty') {
+            $("option[id^='cweight_id_']:gt(2)").hide();
+            $("option[id^='cweight_id_']:lt(3)").show();
+            $("#cweight").val('FifteenTon');
+        } else {
+            $("option[id^='cweight_id_']:gt(2)").show();
+            $("option[id^='cweight_id_']:lt(3)").hide();
+            $("#cweight").val('EighteenTon');
+        }
+        return true;
+    });
+</script>
+</body>
+
+</html>

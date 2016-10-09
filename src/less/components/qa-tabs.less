@@ -1,0 +1,74 @@
+.qa-tabs-nav {
+  background-color: #ffffff;
+
+  text-align: center;
+  &.nav-pills > li.active > a, &.nav-pills > li.active > a:focus, &.nav-pills > li.active > a:hover {
+    color: #fff;
+    background-color: #fb8557;
+  }
+  &.nav-pills > li > a {
+    border-radius: 0;
+  }
+
+  &.nav > li > a, &.nav > li > a {
+    color: #818181;
+  }
+  &.nav > li > a:focus, &.nav > li > a:hover {
+    text-decoration: none;
+    background-color: #eee;
+  }
+}
+
+.qa-tabs-content {
+  background-color: #ffffff;
+  .tab-pane {
+    padding: 2.5rem;
+  }
+
+  .qa-block {
+    padding: 1.3rem;
+  }
+
+  hr {
+    margin-top:0;
+    margin-bottom:0;
+  }
+
+  .qa-question {
+    margin-bottom: 0.5rem;
+
+    .qa-question-icon {
+      display: block;
+      float: left;
+      width: 2.0rem;
+      height: 2.1rem;
+      background: url('../img/常见问题/question^$IMAGE_VERSION$.png');
+    }
+    p {
+      color: #444;
+      line-height: 2rem;
+      font-weight: bolder;
+      font-size: 1.1rem;
+      margin-left: 3.4rem;
+    }
+  }
+  .qa-answer {
+    .qa-answer-icon {
+      display: block;
+      float: left;
+      width: 2.0rem;
+      height: 1.9rem;
+      background: url('../img/常见问题/answer^$IMAGE_VERSION$.png');
+    }
+    p {
+      color: #444;
+      font-weight: lighter;
+      line-height: 2rem;
+      margin-left: 3.4rem;
+
+      a {
+        color: #fb8557;
+      }
+    }
+  }
+}

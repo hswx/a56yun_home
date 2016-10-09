@@ -1,0 +1,82 @@
+
+<nav class="navbar navbar-usertop navbar-fixed-top">
+    <div class="container">
+        <div class="row">
+            <ul class="nav navbar-nav navbar-left">
+                <li><a><img src="img/客服电话^$IMAGE_VERSION$.png">&nbsp;&nbsp;客服电话：4000-625-256</a></li>
+                <li><a href="javascript:openQQWindow();"><img src="img/QQ客服^$IMAGE_VERSION$.png">&nbsp;&nbsp;QQ客服</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right" id="unLoggedBanner">
+            <li><a href="#" onclick="login()"><img src="img/登录/登录图标^$IMAGE_VERSION$.png" >&nbsp;&nbsp;登录</a></li>
+            <li id="signupBonus"><a href="#" onclick="signup()"><div style="position: relative"><img src="img/登录/注册图标^$IMAGE_VERSION$.png" >
+                    <span>注册有礼</span></div ></a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right" id="loggedBanner">
+                <li>
+                    <a id="myNameHref" href="#">
+                        Anonymous user
+                    </a>
+                </li>
+                <li><a href="#" onclick="gotoMyLeYun()"><img src="img/登录/登录图标^$IMAGE_VERSION$.png" >&nbsp;&nbsp;我的乐运</a></li>
+                <li><a><img src="img/登录/Line^$IMAGE_VERSION$.png" ></a></li>
+                <li><a href="#" onclick="logout()">退出</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Navigation -->
+<nav class="navbar navbar-main first-section" role="navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <div class="navbar-main-logo">
+                <a href="^$HOME_URL$">
+                    <img src="img/LOGO^$IMAGE_VERSION$.png" alt="爱我乐运">
+                </a>
+            </div>
+            <!--<div class="navbar-main-slogan">
+                <span>减少空驶</span>
+                <br>
+                <span>重去重回</span>
+            </div>-->
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="^$HOME_URL$">首&nbsp;&nbsp;&nbsp;&nbsp;页</a></li>
+            <li><a class="navbar-main-seperator">/</a></li>
+            <li><a href="requisitions?size=10">进口单程车</a></li>
+            <li><a class="navbar-main-seperator">/</a></li>
+            <li><a href="#" data-toggle="modal" data-target="#modal1">出口顺风车</a></li>
+            <li><a class="navbar-main-seperator">/</a></li>
+            <li><a  href="#" data-toggle="modal" data-target="#modal1">车队业务</a></li>
+            <li><a class="navbar-main-seperator">/</a></li>
+            <li><a href="^$ABOUT_US_URL$">关于我们</a></li>
+        </ul>
+    </div>
+    <!-- /.container -->
+</nav>
+
+<!-- Modal -->
+<div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="modal-setting">
+                    <div class="modal-left">
+                        <img src="img/模态框/左侧图标^$IMAGE_VERSION$.png">
+                    </div>
+                    <div class="modal-right">
+                        <div class="modal-right-top">
+                            <span>平台线上服务将于10月份正式推出</span><br>
+                            <span style="font-size: 1.1rem">目前平台提供线下服务, 如有需要请联系客服</span>
+                        </div>
+                        <hr>
+                        <div class="modal-right-bottom">
+                            <span class="span-contact-phone"><img src="./img/模态框/电话^$IMAGE_VERSION$.png">客服电话 4000-625-256</span>
+                            <span class="span-contact-online"><a href="javascript:openQQWindow();"><img src="./img/模态框/qq^$IMAGE_VERSION$.png">在线客服</a></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

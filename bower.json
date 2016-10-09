@@ -1,0 +1,24 @@
+{
+  "name": "a56yun_home",
+  "authors": [
+    "jchnxu <jchnxu@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "src/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.3",
+    "bootstrap": "^3.3.6",
+    "cookie":"^1.4.1"
+  }
+}

@@ -1,0 +1,211 @@
+
+@navbar-footer-color: #fff;
+@navbar-footer-bg: transparent;
+@navbar-footer-border: transparent;
+
+// Navbar links
+@navbar-footer-link-color: #ddd;
+@navbar-footer-link-hover-color: darken(@navbar-footer-link-color, 15%);
+@navbar-footer-link-hover-border: #fd7947;
+@navbar-footer-link-hover-bg: transparent;
+@navbar-footer-link-active-color: @navbar-footer-link-color;
+@navbar-footer-link-active-bg: transparent;
+@navbar-footer-link-disabled-color: darken(@navbar-footer-link-color, 30%);
+@navbar-footer-link-disabled-bg: transparent;
+//@navbar-footer-link-shadow: 0px 3px 4px rgba(120, 89, 75, .4);
+
+// Navbar brand label
+@navbar-footer-brand-color: @navbar-footer-link-color;
+@navbar-footer-brand-hover-color: darken(@navbar-footer-brand-color, 10%);
+@navbar-footer-brand-hover-bg: transparent;
+
+// Navbar toggle
+@navbar-footer-toggle-hover-bg: #ddd;
+@navbar-footer-toggle-icon-bar-bg: #888;
+@navbar-footer-toggle-border-color: #ddd;
+
+
+
+.navbar-footer {
+
+  background-color: @navbar-footer-bg;
+  border-color: @navbar-footer-border;
+  border-bottom: 0.6em solid @navbar-footer-border;
+  margin-bottom:0;
+
+  .navbar-brand {
+    color: @navbar-footer-brand-color;
+    padding-top:0;
+    padding-bottom:0;
+    &:hover,
+    &:focus {
+      color: @navbar-footer-brand-hover-color;
+      background-color: @navbar-footer-brand-hover-bg;
+    }
+  }
+
+  .navbar-text {
+    color: @navbar-footer-color;
+  }
+
+  .navbar-nav {
+    > li > a {
+      color: @navbar-footer-link-color;
+      border-bottom:0.2rem solid transparent;
+
+      &:hover,
+      &:focus {
+        color: @navbar-footer-link-hover-color;
+        background-color: @navbar-footer-link-hover-bg;
+        border-color: @navbar-footer-link-hover-border;
+      }
+    }
+    > .active > a {
+      &,
+      &:hover,
+      &:focus {
+        color: @navbar-footer-link-active-color;
+        background-color: @navbar-footer-link-active-bg;
+      }
+    }
+    > .disabled > a {
+      &,
+      &:hover,
+      &:focus {
+        color: @navbar-footer-link-disabled-color;
+        background-color: @navbar-footer-link-disabled-bg;
+      }
+    }
+  }
+
+  .navbar-toggle {
+    border-color: @navbar-footer-toggle-border-color;
+    &:hover,
+    &:focus {
+      background-color: @navbar-footer-toggle-hover-bg;
+    }
+    .icon-bar {
+      background-color: @navbar-footer-toggle-icon-bar-bg;
+    }
+  }
+
+  .navbar-collapse,
+  .navbar-form {
+    border-color: @navbar-footer-border;
+  }
+
+  // Dropdown menu items
+  .navbar-nav {
+    // Remove background color from open dropdown
+    > .open > a {
+      &,
+      &:hover,
+      &:focus {
+        background-color: @navbar-footer-link-active-bg;
+        color: @navbar-footer-link-active-color;
+      }
+    }
+
+    @media (max-width: @grid-float-breakpoint-max) {
+      // Dropdowns get custom display when collapsed
+      .open .dropdown-menu {
+        > li > a {
+          color: @navbar-footer-link-color;
+          &:hover,
+          &:focus {
+            color: @navbar-footer-link-hover-color;
+            background-color: @navbar-footer-link-hover-bg;
+          }
+        }
+        > .active > a {
+          &,
+          &:hover,
+          &:focus {
+            color: @navbar-footer-link-active-color;
+            background-color: @navbar-footer-link-active-bg;
+          }
+        }
+        > .disabled > a {
+          &,
+          &:hover,
+          &:focus {
+            color: @navbar-footer-link-disabled-color;
+            background-color: @navbar-footer-link-disabled-bg;
+          }
+        }
+      }
+    }
+  }
+
+
+  // Links in navbars
+  //
+  // Add a class to ensure links outside the navbar nav are colored correctly.
+
+  .navbar-link {
+    color: @navbar-footer-link-color;
+    &:hover {
+      color: @navbar-footer-link-hover-color;
+    }
+  }
+
+  .btn-link {
+    color: @navbar-footer-link-color;
+    &:hover,
+    &:focus {
+      color: @navbar-footer-link-hover-color;
+    }
+    &[disabled],
+    fieldset[disabled] & {
+      &:hover,
+      &:focus {
+        color: @navbar-footer-link-disabled-color;
+      }
+    }
+  }
+}
+
+
+// size related
+
+.navbar-footer {
+  min-height: @navbar-footer-height;
+  padding-top: @navbar-footer-padding-top;
+  padding-bottom: @navbar-footer-padding-bottom;
+
+  .navbar-brand {
+    height: @navbar-footer-height - @navbar-footer-padding-top - @navbar-footer-padding-bottom;
+
+    .navbar-footer-logo {
+      display: inline-block;
+      padding-right: 1.5rem;
+      border-right:0.1rem solid #d4d4d4;
+      vertical-align: middle;
+    }
+    .navbar-footer-slogan {
+      display: inline-block;
+      color:#777;
+      padding-left: 1.5rem;
+      font-size:1.1rem;
+      vertical-align: middle;
+    }
+  }
+
+  .navbar-nav>li>a {
+    padding: 0.5rem 0.7rem;
+    line-height: @navbar-footer-line-height;
+
+    &.navbar-footer-seperator {
+      font-size: 1.4rem;
+      color:#979797;
+      font-weight: 100;
+      cursor: default;
+
+      &:hover {
+        border:none;
+        color:#979797;
+      }
+    }
+  }
+
+}

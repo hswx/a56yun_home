@@ -1,0 +1,219 @@
+
+@navbar-main-color: #777;
+@navbar-main-bg: #f9f9f9;
+@navbar-main-border: #e8e8e8;
+
+// Navbar links
+@navbar-main-link-color: #333;
+@navbar-main-link-hover-color: lighten(@navbar-main-link-color, 15%);
+@navbar-main-link-hover-border: #fd7947;
+@navbar-main-link-hover-bg: transparent;
+@navbar-main-link-active-color: @navbar-main-link-color;
+@navbar-main-link-active-bg: transparent;
+@navbar-main-link-disabled-color: lighten(@navbar-main-link-color, 30%);
+@navbar-main-link-disabled-bg: transparent;
+//@navbar-main-link-shadow: 0px 3px 4px rgba(120, 89, 75, .4);
+
+// Navbar brand label
+@navbar-main-brand-color: @navbar-main-link-color;
+@navbar-main-brand-hover-color: darken(@navbar-main-brand-color, 10%);
+@navbar-main-brand-hover-bg: transparent;
+
+// Navbar toggle
+@navbar-main-toggle-hover-bg: #ddd;
+@navbar-main-toggle-icon-bar-bg: #888;
+@navbar-main-toggle-border-color: #ddd;
+
+
+
+.navbar-main {
+
+  background-color: @navbar-main-bg;
+  border-color: @navbar-main-border;
+  border-bottom: 0.6em solid @navbar-main-border;
+  margin-bottom:0;
+
+  .navbar-brand {
+    color: @navbar-main-brand-color;
+    padding-top:0;
+    padding-bottom:0;
+    &:hover,
+    &:focus {
+      color: @navbar-main-brand-hover-color;
+      background-color: @navbar-main-brand-hover-bg;
+    }
+  }
+
+  .navbar-text {
+    color: @navbar-main-color;
+  }
+
+  .navbar-nav {
+    > li {
+      &:focus{
+        outline-color: transparent;
+      }
+      > a {
+
+        color: @navbar-main-link-color;
+        border-bottom: 0.2rem solid transparent;
+
+        &:hover,
+        &:focus {
+          outline-color: transparent;
+          color: @navbar-main-link-hover-color;
+          background-color: @navbar-main-link-hover-bg;
+          border-color: @navbar-main-link-hover-border;
+        }
+
+      }
+    }
+    > .active > a {
+      &,
+      &:hover,
+      &:focus {
+        color: @navbar-main-link-active-color;
+        background-color: @navbar-main-link-active-bg;
+      }
+    }
+    > .disabled > a {
+      &,
+      &:hover,
+      &:focus {
+        color: @navbar-main-link-disabled-color;
+        background-color: @navbar-main-link-disabled-bg;
+      }
+    }
+  }
+
+  .navbar-toggle {
+    border-color: @navbar-main-toggle-border-color;
+    &:hover,
+    &:focus {
+      background-color: @navbar-main-toggle-hover-bg;
+    }
+    .icon-bar {
+      background-color: @navbar-main-toggle-icon-bar-bg;
+    }
+  }
+
+  .navbar-collapse,
+  .navbar-form {
+    border-color: @navbar-main-border;
+  }
+
+  // Dropdown menu items
+  .navbar-nav {
+    // Remove background color from open dropdown
+    > .open > a {
+      &,
+      &:hover,
+      &:focus {
+        background-color: @navbar-main-link-active-bg;
+        color: @navbar-main-link-active-color;
+      }
+    }
+
+    @media (max-width: @grid-float-breakpoint-max) {
+      // Dropdowns get custom display when collapsed
+      .open .dropdown-menu {
+        > li > a {
+          color: @navbar-main-link-color;
+          &:hover,
+          &:focus {
+            color: @navbar-main-link-hover-color;
+            background-color: @navbar-main-link-hover-bg;
+          }
+        }
+        > .active > a {
+          &,
+          &:hover,
+          &:focus {
+            color: @navbar-main-link-active-color;
+            background-color: @navbar-main-link-active-bg;
+          }
+        }
+        > .disabled > a {
+          &,
+          &:hover,
+          &:focus {
+            color: @navbar-main-link-disabled-color;
+            background-color: @navbar-main-link-disabled-bg;
+          }
+        }
+      }
+    }
+  }
+
+
+  // Links in navbars
+  //
+  // Add a class to ensure links outside the navbar nav are colored correctly.
+
+  .navbar-link {
+    color: @navbar-main-link-color;
+    &:hover {
+      color: @navbar-main-link-hover-color;
+    }
+  }
+
+  .btn-link {
+    color: @navbar-main-link-color;
+    &:hover,
+    &:focus {
+      color: @navbar-main-link-hover-color;
+    }
+    &[disabled],
+    fieldset[disabled] & {
+      &:hover,
+      &:focus {
+        color: @navbar-main-link-disabled-color;
+      }
+    }
+  }
+}
+
+
+// size related
+
+.navbar-main {
+  min-height: @navbar-main-height;
+  padding-top: @navbar-main-padding-top;
+  padding-bottom: @navbar-main-padding-bottom;
+
+  .navbar-brand {
+    height: @navbar-main-height - @navbar-main-padding-top - @navbar-main-padding-bottom;
+
+    .navbar-main-logo {
+      display: inline-block;
+      padding-right: 1.5rem;
+      border-right:0.1rem solid #d4d4d4;
+      vertical-align: middle;
+    }
+    .navbar-main-slogan {
+      display: inline-block;
+      color:#777;
+      padding-left: 1.5rem;
+      font-size:1.1rem;
+      vertical-align: middle;
+    }
+  }
+
+  .navbar-nav>li>a {
+    padding: 0.5rem 0.7rem;
+    line-height: @navbar-main-line-height;
+
+    &.navbar-main-seperator {
+      font-size: 1.4rem;
+      color:#979797;
+      font-weight: 100;
+      cursor: default;
+
+      &:hover {
+        border:none;
+        color:#979797;
+      }
+    }
+  }
+
+}
