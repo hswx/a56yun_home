@@ -141,7 +141,7 @@
             <hr>
             <div class="row">
                 <div class="col-lg-8">
-                    <p>· 平台承运，超低运费<br>
+                    <p>· 平台承运，享受订舱优惠<br>
                         · 避免提不到箱之窘境</p>
                 </div>
                 <div class="col-lg-8">
@@ -163,35 +163,7 @@
     ">
     <div class="container">
         <div class="my-panel">
-            <img class="icon" src="./img/活动页面/单程车^$IMAGE_VERSION$.png">
-
-            <div class="heading">“进口单程车”之魅力</div>
-            <hr>
             <div class="row">
-                <div class="col-lg-8">
-                    <p>· 由货代原合作车队承运</p>
-                </div>
-                <div class="col-lg-8">
-                    <p>
-                        · 现金奖励咨询客服<br>
-                        · 避免不必要之坏污箱费
-                    </p>
-                </div>
-                <p>· 进口做箱日即空箱还箱日
-                </p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section style="
-    margin-bottom:1rem;
-    ">
-    <div class="container">
-        <div class="my-panel">
-            <div class="row">
-                <div class="subtitle"><span class="dot">·</span>参与活动的箱型：</div>
-                <div class="text">40GP，40HC，45HC。</div>
                 <div class="subtitle"><span class="dot">·</span>合作船公司：</div>
                 <div class="text">中外运集运。更多船公司洽谈中，敬请关注。</div>
                 <div class="subtitle"><span class="dot">·</span>操作流程：</div>
@@ -212,21 +184,6 @@
 <!-- build:js -->
 <!-- endbuild -->
 
-<script>
-    $(document).ready(function () {
-        // show active tab on reload
-        if (location.hash !== '') $('a[href="' + location.hash + '"]').tab('show');
-
-        // remember the hash in the URL without jumping
-        $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
-            if (history.pushState) {
-                history.pushState(null, null, '#' + $(e.target).attr('href').substr(1));
-            } else {
-                location.hash = '#' + $(e.target).attr('href').substr(1);
-            }
-        });
-    });
-</script>
 
 </body>
 

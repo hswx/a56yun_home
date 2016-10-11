@@ -28,11 +28,27 @@
         color:#FB9555;
     }
 </style>
+
+
 <!-- build:browserCheckBegin -->
 <!-- endbuild -->
 
 <!-- build:header -->
 <!-- endbuild -->
+
+<div class="modal fade ad-modal" id="adModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content" >
+            <div class="modal-body">
+                <img src="img/首页广告/优惠^$IMAGE_VERSION$.png" usemap="modal-admap">
+                <map name="modal-admap" id="modal-admap" >
+                    <area shape="rect" coords="390,560,540,590" href ="regular.html"/>
+                </map>
+                <img src="img/首页广告/close^$IMAGE_VERSION$.png" data-dismiss="modal" >
+            </div>
+        </div>
+    </div>
+</div>
 
 <section>
     <div id="carousel" class="carousel slide" data-ride="carousel">
@@ -50,25 +66,23 @@
                 <div class="form-group input-box">
                     <label><img src="./img/运价查询/箱型^$IMAGE_VERSION$.png" >箱型：</label>
                     <select class="form-control  input-sm "  id="sel_csize"  >
-                        <option id="csize_id_1" value="Forty">40GP</option>
-                        <option id="csize_id_2" value="FortyFive">45GP</option>
-                        <option id="csize_id_3" value="Twenty">20GP</option>
-                        <option id="csize_id_4" value="Forty">40HC</option>
-                        <option id="csize_id_5" value="FortyFive">45HC</option>
-                        <option id="csize_id_6" value="Twenty">20HC</option>
+                        <option id="csize_id_1" value="Twenty">20GP</option>
+                        <option id="csize_id_2" value="Forty">40GP</option>
+                        <option id="csize_id_3" value="Forty">40HC</option>
+                        <option id="csize_id_4" value="FortyFive">45HC</option>
                     </select>
-                    <input type="hidden" id="containerSizeEnum" name="containerSizeEnum" value="Forty">
-                    <input type="hidden" id="containerTypeEnum" name="containerTypeEnum" value="0">
+                    <input type="hidden" id="containerSizeEnum" name="containerSizeEnum" value="Twenty">
+                    <input type="hidden" id="containerTypeEnum" name="containerTypeEnum" value="GP">
                 </div>
                 <div class="form-group input-weight"name="containerTypeEnum">
                     <label>重量：</label>
                     <select class="form-control input-sm " id="cweight" name="grossWeightEnum" >
-                        <option id="cweight_id_1" value="FifteenTon" style="display: none">15吨以下</option>
-                        <option id="cweight_id_2" value="FifteenTwentyTon" style="display: none">15~20吨</option>
-                        <option id="cweight_id_3" value="TwentyTon" style="display: none">20吨以上</option>
-                        <option id="cweight_id_4" value="EighteenTon" selected>18吨以下</option>
-                        <option id="cweight_id_5" value="EighteenTwentyTwoTon">18~22吨</option>
-                        <option id="cweight_id_6" value="TwentyTwoTon">22吨以上</option>
+                        <option id="cweight_id_1" value="FifteenTon" selected>15吨以下</option>
+                        <option id="cweight_id_2" value="FifteenTwentyTon" >15~20吨</option>
+                        <option id="cweight_id_3" value="TwentyTon" >20吨以上</option>
+                        <option id="cweight_id_4" value="EighteenTon" style="display: none">18吨以下</option>
+                        <option id="cweight_id_5" value="EighteenTwentyTwoTon" style="display: none">18~22吨</option>
+                        <option id="cweight_id_6" value="TwentyTwoTon" style="display: none">22吨以上</option>
                     </select>
                 </div>
                 <hr>
@@ -161,49 +175,34 @@
 
 <!-- build:js -->
 <!-- endbuild -->
-<input type="text"   id="citySelect1" autocomplete="off" placeholder="汉字 / 拼音 / 简拼"  >
-<script type="text/javascript">
-    new Vcity.CitySelector({input:'citySelect1'});
-</script>
-<script type="text/javascript">
-    new Vcity.CitySelector({input:'citySelect',province:'province',city:'city',area:'zone'});
-</script>
+
 <script language="javascript">
-
-    if(location.host==='tx.a56yun.com'){
-        setCheduiFlag();
-    }
-
-    if(!isChedui()){
-        $("#search_box").show();
-        $("#slide_img1").attr('src','http://static.a56yun.com/img/carousel/activity.png');
-    }else{
-        $("#search_box").hide();
-        $("#slide_img1").attr('src','http://static.a56yun.com/img/carousel/aboutme.png');
-    }
-
-    if (!isLogged()) {
-        $("#unLoggedBanner").show();
-        $("#loggedBanner").hide();
-
-    } else {
-        $("#myNameHref").text(getUsernameFromCookie());
-        $("#loggedBanner").show();
-        if(getRolenameFromCookie()==='SUPPORTER'||getRolenameFromCookie()==='ADMINISTRATOR'){
-            $("#loggedBanner>li:eq(1)").hide();
+    document.getElementsByClassName('ad-top')[0].style.display='block';
+    document.getElementsByClassName('navbar-usertop')[0].style.position='relative';
+    document.getElementsByClassName('first-section')[0].style.marginTop='0rem';
+    window.onscroll = function () {
+        var sTop = document.documentElement.scrollTop || document.body.scrollTop;
+        if(sTop>40){
+            document.getElementsByClassName('ad-top')[0].style.display='none';
+            document.getElementsByClassName('navbar-usertop')[0].style.position='fixed';
+            document.getElementsByClassName('first-section')[0].style.marginTop='85.2px';
         }else{
-            $("#loggedBanner>li:eq(1)").show();
+            document.getElementsByClassName('ad-top')[0].style.display='block';
+            document.getElementsByClassName('navbar-usertop')[0].style.position='relative';
+            document.getElementsByClassName('first-section')[0].style.marginTop='0rem';
         }
-        $("#unLoggedBanner").hide();
     }
+    $('#adModal').modal('show');
+    new Vcity.CitySelector({input:'citySelect',province:'province',city:'city',area:'zone'});
+
 
     $("#sel_csize").bind('change', function () {
         $("#containerSizeEnum").val($(this).val());
-        if($(this).id =='cweight_id_1'||$(this).id =='cweight_id_2'||$(this).id =='cweight_id_3'){
-            $("#containerTypeEnum").val(0);
+        if($(this).id =='cweight_id_1'||$(this).id =='cweight_id_2'){
+            $("#containerTypeEnum").val('GP');
         }
-        if($(this).id =='cweight_id_4'||$(this).id =='cweight_id_5'||$(this).id =='cweight_id_6'){
-            $("#containerTypeEnum").val(1);
+        if($(this).id =='cweight_id_3'||$(this).id =='cweight_id_4'){
+            $("#containerTypeEnum").val('HC');
         }
 
         if ($(this).val() == 'Twenty') {

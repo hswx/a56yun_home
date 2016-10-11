@@ -10,6 +10,7 @@ var gClean = require('gulp-clean');
 var gFilter = require('gulp-filter');
 var gRename = require('gulp-rename');
 var gReplace = require('gulp-replace');
+var gHtmlmin = require('gulp-htmlmin-master');
 
 var fs = require('fs');
 
@@ -27,7 +28,7 @@ function genHtmlReplaceArgs() {
         header: fs.readFileSync('./src/html_components/header.html','utf-8'),
         footer: fs.readFileSync('./src/html_components/footer.html','utf-8'),
         css: './css/main_'+timestamp+'.css',
-        js: ['./js/vendor_'+timestamp+'.js','./js/main_'+timestamp+'.js'],
+        js: ['./js/vendor_'+timestamp+'.js','./js/main_'+timestamp+'.js','./js/common.js','./js/jquery.cookie.js'],
         headerMetas: '<meta charset="utf-8">'+
         '<meta http-equiv="X-UA-Compatible" content="IE=edge">'+
         '<meta name="viewport" content="width=device-width, initial-scale=1">',
@@ -52,10 +53,18 @@ gulp.task('prod.js.vendor', function () {
 
 gulp.task('prod.js.src', function () {
     var title = 'prod.js.src\t';
-    return gulp.src(['./src/*.js', '!./**/*.specs.js','!./src/cityselect.js'])
+    return gulp.src(['./src/*.js', '!./**/*.specs.js','!./src/common.js'
+        ,'!./src/JiangZhehu.min.js','!./src/main.js','!./src/jquery.cookie.js,','!./src/jquery.cityselect.js'])
         .pipe(gDebug({title: title}))
         .pipe(gConcat('main_'+timestamp+'.js'))
         .pipe(gUglify())
+        .pipe(gulp.dest(PROD_JS_DIR));
+});
+
+gulp.task('prod.js.extra', function () {
+    var title = 'prod.js.src\t';
+    return gulp.src(['./src/common.js','./src/JiangZhehu.min.js','./src/jquery.cookie.js','./src/jquery.cityselect.js'])
+        .pipe(gDebug({title: title}))
         .pipe(gulp.dest(PROD_JS_DIR));
 });
 
@@ -79,6 +88,13 @@ gulp.task('prod.images', [/*'dev.styles.fonts', 'dev.styles.print'*/], function 
         .pipe(gRename(function (path) {
             path.basename = path.basename + '_' + timestamp;
         }))
+        .pipe(gulp.dest(PROD_IMG_DIR));
+});
+
+gulp.task('prod.images.extra', function () {
+    var title = 'prod.images\t';
+    return gulp.src(['./src/img/客服电话.png','./src/img/QQ客服.png'])
+        .pipe(gDebug({title: title}))
         .pipe(gulp.dest(PROD_IMG_DIR));
 });
 
@@ -119,6 +135,15 @@ gulp.task('prod.app', function () {
         .pipe(gReplace(/\^\$FORGET_PASSWORD_URL\$/g, ''))
         .pipe(gReplace(/\^\$REGULAR_URL\$/g, './regular.html'))
         .pipe(gReplace(/\^\$AGENCIES_URL\$/g, './agencies.html'))
+        // .pipe(gHtmlmin({ removeComments: true,  //清除HTML注释
+        //     collapseWhitespace: true,  //压缩HTML
+        //     collapseBooleanAttributes: true,  //省略布尔属性的值 <input checked="true"/> ==> <input checked />
+        //     removeEmptyAttributes: true,  //删除所有空格作属性值 <input id="" /> ==> <input />
+        //     removeScriptTypeAttributes: true,  //删除<script>的type="text/javascript"
+        //     removeStyleLinkTypeAttributes: true,  //删除<style>和<link>的type="text/css"
+        //     minifyJS: true,  //压缩页面JS
+        //     minifyCSS: true  //压缩页面CSS
+        //      }))
         .pipe(gulp.dest(PROD_DIR));
 });
 
@@ -129,6 +154,6 @@ gulp.task('clean', function () {
 
 gulp.task('prod', function (callback) {
     runSequence('clean',
-        ['prod.app', 'prod.styles', 'prod.js.vendor', 'prod.js.src', 'prod.images', 'prod.favicon'],
+        ['prod.app', 'prod.styles', 'prod.js.vendor', 'prod.js.src','prod.js.extra', 'prod.images','prod.images.extra', 'prod.favicon'],
         callback);
 });

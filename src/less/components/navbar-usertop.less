@@ -30,7 +30,7 @@
 
   background-color: @navbar-usertop-bg;
   border-color: @navbar-usertop-border;
-
+  margin-bottom: 0px;
   .navbar-brand {
     color: @navbar-usertop-brand-color;
     &:hover,
@@ -186,4 +186,30 @@
     }
     }
   }
+  .ad-top{
+    background-color: #fdffd8;
+    text-align: center;
+    display: none;
+    .ad-header {
+      display: inline-block;
+      &:hover + .ad-content {
+        top: 40px;
+      }
+    }
+    .ad-content{
+      position:absolute;
+      margin:0 auto;
+      left:0;
+      right:0;
+      top: -700px
+    ;z-index: 2000;
+      width:600px;
+      transition: top 1s;
+      &:hover{
+        top: 40px;
+      }
+    }
+  }
+
+
 }
