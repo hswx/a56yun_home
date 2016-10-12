@@ -66,23 +66,25 @@
                 <div class="form-group input-box">
                     <label><img src="./img/运价查询/箱型^$IMAGE_VERSION$.png" >箱型：</label>
                     <select class="form-control  input-sm "  id="sel_csize"  >
+                        <option id="csize_id_0" value="">全部</option>
                         <option id="csize_id_1" value="Twenty">20GP</option>
                         <option id="csize_id_2" value="Forty">40GP</option>
                         <option id="csize_id_3" value="Forty">40HC</option>
                         <option id="csize_id_4" value="FortyFive">45HC</option>
                     </select>
-                    <input type="hidden" id="containerSizeEnum" name="containerSizeEnum" value="Twenty">
-                    <input type="hidden" id="containerTypeEnum" name="containerTypeEnum" value="GP">
+                    <input type="hidden" id="containerSizeEnum" name="containerSizeEnum" value="">
+                    <input type="hidden" id="containerTypeEnum" name="containerTypeEnum" value="">
                 </div>
                 <div class="form-group input-weight"name="containerTypeEnum">
                     <label>重量：</label>
                     <select class="form-control input-sm " id="cweight" name="grossWeightEnum" >
-                        <option id="cweight_id_1" value="FifteenTon" selected>15吨以下</option>
+                        <option id="cweight_id_0" value="" >全部</option>
+                        <option id="cweight_id_1" value="FifteenTon" >15吨以下</option>
                         <option id="cweight_id_2" value="FifteenTwentyTon" >15~20吨</option>
                         <option id="cweight_id_3" value="TwentyTon" >20吨以上</option>
-                        <option id="cweight_id_4" value="EighteenTon" style="display: none">18吨以下</option>
-                        <option id="cweight_id_5" value="EighteenTwentyTwoTon" style="display: none">18~22吨</option>
-                        <option id="cweight_id_6" value="TwentyTwoTon" style="display: none">22吨以上</option>
+                        <option id="cweight_id_4" value="EighteenTon">18吨以下</option>
+                        <option id="cweight_id_5" value="EighteenTwentyTwoTon" >18~22吨</option>
+                        <option id="cweight_id_6" value="TwentyTwoTon" >22吨以上</option>
                     </select>
                 </div>
                 <hr>
@@ -198,21 +200,37 @@
 
     $("#sel_csize").bind('change', function () {
         $("#containerSizeEnum").val($(this).val());
-        if($(this).id =='cweight_id_1'||$(this).id =='cweight_id_2'){
-            $("#containerTypeEnum").val('GP');
+        if($(this).val()==''){
+            $("#containerTypeEnum").val('');
+            $("option[id^='cweight_id_']").show();
+            $("#cweight").get(0).selectedIndex=0;
         }
-        if($(this).id =='cweight_id_3'||$(this).id =='cweight_id_4'){
-            $("#containerTypeEnum").val('HC');
-        }
-
         if ($(this).val() == 'Twenty') {
-            $("option[id^='cweight_id_']:gt(2)").hide();
-            $("option[id^='cweight_id_']:lt(3)").show();
-            $("#cweight").val('FifteenTon');
-        } else {
-            $("option[id^='cweight_id_']:gt(2)").show();
-            $("option[id^='cweight_id_']:lt(3)").hide();
-            $("#cweight").val('EighteenTon');
+            $("#containerTypeEnum").val('GP');
+            $("option[id^='cweight_id_']:gt(3)").hide();
+            $("option[id^='cweight_id_0']").show();
+            $("option[id^='cweight_id_']:lt(4)").show();
+            $("#cweight").get(0).selectedIndex=0;
+        }
+        if($(this).val() == 'Forty') {
+            if($("option[id^='cweight_id_']:selected").id=='csize_id_2'){
+                $("#containerTypeEnum").val('GP');
+            }else{
+                $("#containerTypeEnum").val('HC');
+            }
+            $("option[id^='cweight_id_']:gt(3)").show();
+            $("option[id^='cweight_id_']:lt(4)").hide();
+            $("option[id^='cweight_id_0']").show();
+            $("#cweight").get(0).selectedIndex=0;
+
+        }
+        if($(this).val()=='FortyFive'){
+            $("#containerTypeEnum").val('HC');
+            $("option[id^='cweight_id_']:gt(3)").show();
+            $("option[id^='cweight_id_']:lt(4)").hide();
+            $("option[id^='cweight_id_0']").show();
+            $("#cweight").get(0).selectedIndex=0;
+
         }
         return true;
     });
