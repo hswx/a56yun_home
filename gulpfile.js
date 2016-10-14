@@ -73,6 +73,8 @@ gulp.task('prod.styles', [/*'dev.styles.fonts', 'dev.styles.print'*/], function 
     return gulp.src(['./src/less/main.less'])
         .pipe(gDebug({title: title}))
         .pipe(gLess())
+        .pipe(gReplace(/\^\$HOST_URL\$/g,''))//本地测试用
+        //.pipe(gReplace(/\^\$HOST_URL\$/g,''))//外网使用
         .pipe(gReplace(/\^\$IMAGE_VERSION\$/g, '_'+timestamp))
         .pipe(gRename(function (path) {
             path.basename = path.basename + '_' + timestamp;
@@ -112,6 +114,7 @@ gulp.task('prod.app', function () {
         .pipe(gHtmlReplace(genHtmlReplaceArgs(), {
             keepBlockTags: true
         }))
+        .pipe(gReplace(/\^\$HOST_URL\$/g,''))
         .pipe(gReplace(/\^\$IMAGE_VERSION\$/g, '_'+timestamp))
         .pipe(gReplace(/\^\$HOME_URL\$/g, '.'))
         .pipe(gReplace(/\^\$IMPORT_ONEWAY_URL\$/g, ''))
